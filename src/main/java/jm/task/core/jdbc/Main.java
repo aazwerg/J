@@ -14,7 +14,6 @@ public class Main {
         userList.add(new User("John", "Doe", (byte) 77));
         userList.add(new User("Oleg", "Thcethcevitsyn", (byte) 28));
         userList.add(new User("Fyodor", "Sumkin", (byte) 33));
-
         userService.createUsersTable();
 
         for (User user : userList) {

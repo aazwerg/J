@@ -22,7 +22,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         try (Statement s = connection.createStatement()) {
             s.execute("CREATE TABLE `users` (id BIGINT PRIMARY KEY AUTO_INCREMENT," +
-                        "name VARCHAR(255), lastName VARCHAR(255), age TINYINT);");
+                    "name VARCHAR(255), lastName VARCHAR(255), age TINYINT);");
         } catch (SQLException e) {
         }
     }
@@ -36,7 +36,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void saveUser(String name, String lastName, byte age) {
         try (PreparedStatement s = connection.prepareStatement("INSERT INTO users (NAME, LASTNAME, AGE) " +
-                                                                "VALUES (?, ?, ?)")){
+                "VALUES (?, ?, ?)")){
             s.setString(1, name);
             s.setString(2, lastName);
             s.setByte(3, age);
@@ -60,8 +60,8 @@ public class UserDaoJDBCImpl implements UserDao {
             LinkedList<User> userList = new LinkedList<>();
             while (result.next()) {
                 User user = new User(result.getString(2),
-                                    result.getString(3),
-                                    result.getByte(4));
+                        result.getString(3),
+                        result.getByte(4));
                 user.setId(result.getLong(1));
                 userList.add(user);
             }
